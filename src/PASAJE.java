@@ -12,6 +12,14 @@ public class PASAJE {
     protected String Origen;
     protected String Destino;
     protected int Cantidad;
+
+    public Date getSalida() {
+        return Salida;
+    }
+
+    public Date getVuelta() {
+        return Vuelta;
+    }
      
     
     
