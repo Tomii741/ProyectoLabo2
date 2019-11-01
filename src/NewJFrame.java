@@ -1,9 +1,13 @@
 
+import javax.swing.DefaultListModel;
+
+
 public class NewJFrame extends javax.swing.JFrame {
 
 
     public NewJFrame() {
         initComponents();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -240,6 +244,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
     }
 
+    DefaultListModel modelo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Buscar;
     private javax.swing.JSpinner Cantidad;
