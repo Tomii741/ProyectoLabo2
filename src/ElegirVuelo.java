@@ -1,20 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Turbioh
- */
+import javax.swing.DefaultListModel;
+
+
 public class ElegirVuelo extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ElegirVuelo
-     */
+
     public ElegirVuelo() {
         initComponents();
+        modelo = new DefaultListModel();
+        jListVuelos.setModel(modelo);
     }
 
     /**
@@ -108,11 +102,12 @@ public class ElegirVuelo extends javax.swing.JFrame {
         });
     }
     
-    public void AgregarElemento()
+    public void AgregarElemento(String palabra)
     {
-        
+        modelo.addElement(palabra);
     }
 
+    DefaultListModel modelo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSeleccionar;
     private javax.swing.JList<String> jListVuelos;

@@ -188,6 +188,8 @@ public class NewJFrame extends javax.swing.JFrame {
         for(VUELOS v : vuelo)
         {
             System.out.println("Vuelo " + v.getPrecio() + " " + v.getOrigen() + v.getDestino() + v.getFechaSalida() + v.getFechaLlegada());
+            String palabra = "Vuelo " + v.getPrecio() + " " + v.getOrigen() + v.getDestino() + v.getFechaSalida() + v.getFechaLlegada();
+            elegirVuelo.AgregarElemento(palabra);
         }
         
         System.out.println(""+pasaje.Cantidad);

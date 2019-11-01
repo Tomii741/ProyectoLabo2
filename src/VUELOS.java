@@ -14,9 +14,10 @@ public class VUELOS {
     public VUELOS(String Origen, String Destino, Date Salida, Date Llegada) {
         this.Origen = Origen;
         this.Destino = Destino;
-        this.FechaSalida = Salida;
+        this.FechaSalida = Salida;          
         this.FechaLlegada = Llegada;
         this.precio = (int)(Math.random()*300) + 100;
+        
     }
 
     public int getPrecio() {
