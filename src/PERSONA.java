@@ -7,4 +7,5 @@ public class PERSONA {
     private Long Dni;
     private Long Tel;
     
+    
 }

@@ -66,6 +66,11 @@ public class JFramePasajero extends javax.swing.JFrame {
         ComboBoxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
 
         btnPasajeros.setText("Continuar");
+        btnPasajeros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPasajerosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,6 +130,15 @@ public class JFramePasajero extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasajerosActionPerformed
+        
+        System.out.println(" " +txtNombre.getText());
+        System.out.println(" " +txtApellido.getText());
+        System.out.println(" " +ComboBoxSexo.getSelectedItem());
+        System.out.println(" " +txtDNI.getText());
+        System.out.println(" " +txtTelefono.getText());
+    }//GEN-LAST:event_btnPasajerosActionPerformed
 
     /**
      * @param args the command line arguments

@@ -28,11 +28,16 @@ public class ElegirVuelo extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jListVuelos = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
+        btnSeleccionar = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jListVuelos);
 
-        jButton1.setText("Seleccionar");
+        btnSeleccionar.setText("Seleccionar");
+        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -45,7 +50,7 @@ public class ElegirVuelo extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(258, 258, 258)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -54,12 +59,19 @@ public class ElegirVuelo extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
+        
+        JFramePasajero pasajero = new JFramePasajero();
+        
+        pasajero.setVisible(true);
+    }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,11 +110,11 @@ public class ElegirVuelo extends javax.swing.JFrame {
     
     public void AgregarElemento()
     {
-        //jListVuelos.add("algo");
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSeleccionar;
     private javax.swing.JList<String> jListVuelos;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
