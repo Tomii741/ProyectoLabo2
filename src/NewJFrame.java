@@ -174,6 +174,11 @@ public class NewJFrame extends javax.swing.JFrame {
         pasaje.Vuelta = FechaVuelta.getDate();
         pasaje.Cantidad = (int)Cantidad.getValue();
         
+        for(int i=0; i<4;i++)
+        {
+            VUELOS vuelo = new VUELOS(pasaje.Origen, pasaje.Destino);
+            System.out.println("Vuelo "+i+" "+vuelo.getPrecio());
+        }
         System.out.println(""+pasaje.Cantidad);
         elegirVuelo.setVisible(true);
     }//GEN-LAST:event_BuscarActionPerformed

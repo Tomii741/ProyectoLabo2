@@ -9,6 +9,17 @@ public class VUELOS {
     private String Destino;
     private Date FechaSalida = new Date();
     private Date FechaLlegada = new Date();
-    private Float precio;
-    
+    private int precio;
+
+    public VUELOS(String Origen, String Destino) {
+        this.Origen = Origen;
+        this.Destino = Destino;
+        this.precio = (int)(Math.random()*30) + 10;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+ 
 }
