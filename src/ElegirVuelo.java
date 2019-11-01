@@ -27,10 +27,10 @@ public class ElegirVuelo extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jListVuelos = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(jListVuelos);
 
         jButton1.setText("Seleccionar");
 
@@ -95,10 +95,15 @@ public class ElegirVuelo extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void AgregarElemento()
+    {
+        //jListVuelos.add("algo");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jListVuelos;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
