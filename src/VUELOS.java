@@ -1,5 +1,5 @@
 
-import java.sql.Time;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -7,19 +7,31 @@ public class VUELOS {
     private int asientosLibres;
     private String Origen;
     private String Destino;
-    private Date FechaSalida = new Date();
-    private Date FechaLlegada = new Date();
+    private Calendar FechaSalida = Calendar.getInstance();
+    private Calendar FechaLlegada = Calendar.getInstance();
     private int precio;
+    private int aux;
 
     public VUELOS(String Origen, String Destino, Date Salida, Date Llegada) {
         this.Origen = Origen;
         this.Destino = Destino;
-        this.FechaSalida = Salida;          
-        this.FechaLlegada = Llegada;
-        this.precio = (int)(Math.random()*300) + 100;
-        
+        this.FechaSalida.setTime(Salida);
+        aux = (int)(Math.random()*23)+1;
+        this.FechaSalida.set(Calendar.HOUR_OF_DAY,aux);
+        this.FechaLlegada.setTime(Llegada);
+        aux = (int)(Math.random()*23)+1;
+        this.FechaLlegada.set(Calendar.HOUR_OF_DAY,aux);
+        this.precio = (int)(Math.random()*300) + 100;               
     }
-
+    public VUELOS(String Origen, String Destino, Date Salida) {
+        this.Origen = Origen;
+        this.Destino = Destino;
+        this.FechaSalida.setTime(Salida);
+        aux = (int)(Math.random()*23)+1;
+        this.FechaSalida.set(Calendar.HOUR_OF_DAY,aux);
+        this.precio = (int)(Math.random()*300) + 100;               
+    }
+    
     public int getPrecio() {
         return precio;
     }
@@ -37,12 +49,13 @@ public class VUELOS {
     }
 
     public Date getFechaSalida() {
-        return FechaSalida;
+        return FechaSalida.getTime();
     }
 
     public Date getFechaLlegada() {
-        return FechaLlegada;
+        return FechaLlegada.getTime();
     }
+
 
  
 }

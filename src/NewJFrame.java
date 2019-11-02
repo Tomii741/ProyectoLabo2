@@ -1,6 +1,7 @@
 
 import javax.swing.DefaultListModel;
-
+import java.util.Calendar;
+import java.util.Date;
 
 public class NewJFrame extends javax.swing.JFrame {
 
@@ -172,25 +173,39 @@ public class NewJFrame extends javax.swing.JFrame {
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         //Boton Buscar
         ElegirVuelo elegirVuelo = new ElegirVuelo();
-        PASAJE pasaje = new PASAJE();
+        PASAJE pasaje = new PasajeIdayVuelta();
+        if(CheckSoloIda.isSelected())
+        {
+            pasaje = new PasajeSoloIda();
+        }
+        else
+        {
+            pasaje = new PasajeIdayVuelta();
+        }
+        
         pasaje.Destino = TxtDestino.getText();
         pasaje.Origen = TxtOrigen.getText();
-        pasaje.Salida = FechaSalida.getDate();
-        pasaje.Vuelta = FechaVuelta.getDate();
+        pasaje.setSalida(FechaSalida.getDate());
+        pasaje.setVuelta(FechaVuelta.getDate());       
         pasaje.Cantidad = (int)Cantidad.getValue();
-        
         VUELOS vuelo[] = new VUELOS[4];
+        
         for(int i=0; i<4;i++)
         {
-            vuelo[i] = new VUELOS(pasaje.Origen, pasaje.Destino, pasaje.getSalida(), pasaje.getVuelta() );
-            System.out.println("Vuelo "+i+" "+ (int)vuelo[i].getPrecio());
+            if(CheckSoloIda.isSelected())
+            {
+                vuelo[i] = new VUELOS(pasaje.Origen, pasaje.Destino, pasaje.getSalida());
+                String palabra = "Precio: " + vuelo[i].getPrecio() + " - Origen: " + vuelo[i].getOrigen()+" - Destino: " + vuelo[i].getDestino() + " - Fecha de Salida: " +  vuelo[i].getFechaSalida();
+                elegirVuelo.AgregarElemento(palabra);
+            }
+            else{
+                vuelo[i] = new VUELOS(pasaje.Origen, pasaje.Destino, pasaje.getSalida(), pasaje.getVuelta() );
+                String palabra = "Precio: " + vuelo[i].getPrecio() + " - Origen: " + vuelo[i].getOrigen()+" - Destino: " + vuelo[i].getDestino() + " - Fecha de Salida: " +  vuelo[i].getFechaSalida()+ " - Fecha de Vuelta: " + vuelo[i].getFechaLlegada();
+                elegirVuelo.AgregarElemento(palabra);
+            }
+                       
         }
-        for(VUELOS v : vuelo)
-        {
-            System.out.println("Vuelo " + v.getPrecio() + " " + v.getOrigen() + v.getDestino() + v.getFechaSalida() + v.getFechaLlegada());
-            String palabra = "Vuelo " + v.getPrecio() + " " + v.getOrigen() + v.getDestino() + v.getFechaSalida() + v.getFechaLlegada();
-            elegirVuelo.AgregarElemento(palabra);
-        }
+
         
         System.out.println(""+pasaje.Cantidad);
         elegirVuelo.setVisible(true);
