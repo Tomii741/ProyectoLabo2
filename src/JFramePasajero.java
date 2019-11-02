@@ -1,13 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Usuario
- */
 public class JFramePasajero extends javax.swing.JFrame {
 
     /**
@@ -138,6 +129,7 @@ public class JFramePasajero extends javax.swing.JFrame {
         System.out.println(" " +ComboBoxSexo.getSelectedItem());
         System.out.println(" " +txtDNI.getText());
         System.out.println(" " +txtTelefono.getText());
+        
     }//GEN-LAST:event_btnPasajerosActionPerformed
 
     /**
@@ -175,6 +167,12 @@ public class JFramePasajero extends javax.swing.JFrame {
         });
     }
 
+    public void setVuelo(String vuelo) {
+        this.vuelo = vuelo;
+    }
+    
+    
+    private String vuelo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxSexo;
     private javax.swing.JButton btnPasajeros;

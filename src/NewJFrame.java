@@ -188,6 +188,7 @@ public class NewJFrame extends javax.swing.JFrame {
         pasaje.setSalida(FechaSalida.getDate());
         pasaje.setVuelta(FechaVuelta.getDate());       
         pasaje.Cantidad = (int)Cantidad.getValue();
+        elegirVuelo.setCantidad((int)Cantidad.getValue());
         VUELOS vuelo[] = new VUELOS[4];
         
         for(int i=0; i<4;i++)
@@ -206,8 +207,7 @@ public class NewJFrame extends javax.swing.JFrame {
                        
         }
 
-        
-        System.out.println(""+pasaje.Cantidad);
+       
         elegirVuelo.setVisible(true);
     }//GEN-LAST:event_BuscarActionPerformed
 
