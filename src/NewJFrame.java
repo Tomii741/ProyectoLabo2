@@ -196,12 +196,12 @@ public class NewJFrame extends javax.swing.JFrame {
             if(CheckSoloIda.isSelected())
             {
                 vuelo[i] = new VUELOS(pasaje.Origen, pasaje.Destino, pasaje.getSalida());
-                String palabra = "Precio: " + vuelo[i].getPrecio() + " - Origen: " + vuelo[i].getOrigen()+" - Destino: " + vuelo[i].getDestino() + " - Fecha de Salida: " +  vuelo[i].getFechaSalida();
+                String palabra = "Precio: $" + vuelo[i].getPrecio() + " - Origen: " + vuelo[i].getOrigen()+" - Destino: " + vuelo[i].getDestino() + " - Salida: " +  vuelo[i].getFechaSalida();
                 elegirVuelo.AgregarElemento(palabra);
             }
             else{
                 vuelo[i] = new VUELOS(pasaje.Origen, pasaje.Destino, pasaje.getSalida(), pasaje.getVuelta() );
-                String palabra = "Precio: " + vuelo[i].getPrecio() + " - Origen: " + vuelo[i].getOrigen()+" - Destino: " + vuelo[i].getDestino() + " - Fecha de Salida: " +  vuelo[i].getFechaSalida()+ " - Fecha de Vuelta: " + vuelo[i].getFechaLlegada();
+                String palabra = "Precio: $" + vuelo[i].getPrecio() + " - Origen: " + vuelo[i].getOrigen()+" - Destino: " + vuelo[i].getDestino() + " - Salida: " +  vuelo[i].getFechaSalida()+ " - Vuelta: " + vuelo[i].getFechaLlegada();
                 elegirVuelo.AgregarElemento(palabra);
             }
                        

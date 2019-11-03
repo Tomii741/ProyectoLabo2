@@ -127,12 +127,7 @@ public class JFramePasajero extends javax.swing.JFrame {
         MostrarPasajeros mostrarP = new MostrarPasajeros();
         mostrarP.setVisible(true);
         
-        mostrarP.AgregarDato( txtNombre.getText(), txtApellido.getText());
-        System.out.println(" " +txtNombre.getText());
-        System.out.println(" " +txtApellido.getText());
-        System.out.println(" " +ComboBoxSexo.getSelectedItem());
-        System.out.println(" " +txtDNI.getText());
-        System.out.println(" " +txtTelefono.getText());
+        mostrarP.AgregarDato(txtNombre.getText(), txtApellido.getText(), ComboBoxSexo.getSelectedItem().toString(), txtDNI.getText(), txtTelefono.getText(), vuelo);
         
     }//GEN-LAST:event_btnPasajerosActionPerformed
 

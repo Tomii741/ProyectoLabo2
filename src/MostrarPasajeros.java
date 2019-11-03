@@ -1,4 +1,5 @@
 
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -21,15 +22,25 @@ public class MostrarPasajeros extends javax.swing.JFrame {
         modelo = new DefaultTableModel();
         
         jTablePasajeros.setModel(modelo);
-        Object[] titulo = {"nombre", "apellido"};
+        Object[] titulo = {"Nombre", "Apellido", "Sexo", "DNI", "Telefono", "              Vuelo"};
+        
         modelo.setColumnIdentifiers(titulo);
+        jTablePasajeros.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        jTablePasajeros.getColumnModel().getColumn(5).setPreferredWidth(750);
+        jTablePasajeros.getColumnModel().getColumn(0).setPreferredWidth(150);
+        jTablePasajeros.getColumnModel().getColumn(1).setPreferredWidth(150);
+        jTablePasajeros.getColumnModel().getColumn(4).setPreferredWidth(150);
     }
     
-    public void AgregarDato(String nombre, String apellido){
+    public void AgregarDato(String nombre, String apellido, String sexo, String dni, String telefono, String vuelo){
        
-       Object[] Row = new Object[2];
+       Object[] Row = new Object[6];
        Row[0]=nombre;
        Row[1]=apellido;
+       Row[2]=sexo;
+       Row[3]=dni;
+       Row[4]=telefono;
+       Row[5]=vuelo;
        modelo.addRow(Row);
     }
     /**
@@ -66,6 +77,14 @@ public class MostrarPasajeros extends javax.swing.JFrame {
         });
         jTablePasajeros.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(jTablePasajeros);
+        jTablePasajeros.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (jTablePasajeros.getColumnModel().getColumnCount() > 0) {
+            jTablePasajeros.getColumnModel().getColumn(0).setPreferredWidth(200);
+            jTablePasajeros.getColumnModel().getColumn(1).setPreferredWidth(200);
+            jTablePasajeros.getColumnModel().getColumn(2).setPreferredWidth(150);
+            jTablePasajeros.getColumnModel().getColumn(3).setPreferredWidth(150);
+            jTablePasajeros.getColumnModel().getColumn(4).setPreferredWidth(150);
+        }
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Lista de Pasajeros");
@@ -75,13 +94,12 @@ public class MostrarPasajeros extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel1)))
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addContainerGap(565, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -89,9 +107,9 @@ public class MostrarPasajeros extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
