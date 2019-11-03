@@ -61,6 +61,7 @@ public class ElegirVuelo extends javax.swing.JFrame {
         
         JFramePasajero pasajero = new JFramePasajero();                         
         pasajero.setVuelo(jListVuelos.getSelectedValue());
+        pasajero.setCantidad(Cantidad);
         pasajero.setVisible(true);
         
         

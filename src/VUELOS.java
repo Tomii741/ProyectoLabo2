@@ -10,6 +10,7 @@ public class VUELOS {
     private Calendar FechaSalida = Calendar.getInstance();
     private Calendar FechaLlegada = Calendar.getInstance();
     private int precio;
+    private final int costoFijo = 150;
     private int aux;
 
     public VUELOS(String Origen, String Destino, Date Salida, Date Llegada) {
@@ -21,7 +22,7 @@ public class VUELOS {
         this.FechaLlegada.setTime(Llegada);
         aux = (int)(Math.random()*23)+1;
         this.FechaLlegada.set(Calendar.HOUR_OF_DAY,aux);
-        this.precio = (int)(Math.random()*300) + 100;               
+        this.precio = (int)(Math.random()*300) + costoFijo;               
     }
     public VUELOS(String Origen, String Destino, Date Salida) {
         this.Origen = Origen;
@@ -29,7 +30,7 @@ public class VUELOS {
         this.FechaSalida.setTime(Salida);
         aux = (int)(Math.random()*23)+1;
         this.FechaSalida.set(Calendar.HOUR_OF_DAY,aux);
-        this.precio = (int)(Math.random()*300) + 100;               
+        this.precio = costoFijo;               
     }
     
     public int getPrecio() {

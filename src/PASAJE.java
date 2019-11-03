@@ -30,5 +30,12 @@ public abstract class PASAJE {
         return Vuelta.getTime();
     }
     
+    public static void CheckCasillaNoNula(String dato) throws ExcepcionNulo
+    {
+        if(dato.isEmpty())
+        {
+            throw new ExcepcionNulo();
+        }
+    }
     
 }

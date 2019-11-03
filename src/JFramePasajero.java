@@ -1,4 +1,6 @@
 
+
+
 public class JFramePasajero extends javax.swing.JFrame {
 
     /**
@@ -6,6 +8,7 @@ public class JFramePasajero extends javax.swing.JFrame {
      */
     public JFramePasajero() {
         initComponents();
+        jLabelPasajero.setText("Pasajeros restantes "+(Cantidad));     
     }
 
     /**
@@ -17,7 +20,7 @@ public class JFramePasajero extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabelPasajero = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -32,8 +35,8 @@ public class JFramePasajero extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setText("Pasajeros");
+        jLabelPasajero.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabelPasajero.setText("Pasajeros");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Nombre:");
@@ -50,10 +53,6 @@ public class JFramePasajero extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("Telefono:");
 
-        txtNombre.setText("Como figura en el DNI");
-
-        txtApellido.setText("Como figura en el DNI");
-
         ComboBoxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
 
         btnPasajeros.setText("Continuar");
@@ -69,31 +68,30 @@ public class JFramePasajero extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabelPasajero, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnPasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(ComboBoxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-                                .addComponent(txtApellido)))))
+                    .addComponent(btnPasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(ComboBoxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                        .addComponent(txtApellido)))
                 .addContainerGap(93, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(jLabel1)
+                .addComponent(jLabelPasajero)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -124,10 +122,13 @@ public class JFramePasajero extends javax.swing.JFrame {
 
     private void btnPasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasajerosActionPerformed
         
-        MostrarPasajeros mostrarP = new MostrarPasajeros();
-        mostrarP.setVisible(true);
         
-        mostrarP.AgregarDato(txtNombre.getText(), txtApellido.getText(), ComboBoxSexo.getSelectedItem().toString(), txtDNI.getText(), txtTelefono.getText(), vuelo);
+        if(Cantidad>0)
+        {
+          GuardarDatosEnTabla();  
+        }
+ 
+        
         
     }//GEN-LAST:event_btnPasajerosActionPerformed
 
@@ -162,6 +163,7 @@ public class JFramePasajero extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new JFramePasajero().setVisible(true);
+                
             }
         });
     }
@@ -169,18 +171,38 @@ public class JFramePasajero extends javax.swing.JFrame {
     public void setVuelo(String vuelo) {
         this.vuelo = vuelo;
     }
+
+    public void setCantidad(int Cantidad) {
+        this.Cantidad = Cantidad;
+    }
     
+    public void GuardarDatosEnTabla()
+    {
+            jLabelPasajero.setText("Pasajeros restantes "+(Cantidad));
+            mostrarP.AgregarDato(txtNombre.getText(), txtApellido.getText(), ComboBoxSexo.getSelectedItem().toString(), txtDNI.getText(), txtTelefono.getText(), vuelo); 
+            txtNombre.setText("");
+            txtApellido.setText("");
+            txtDNI.setText("");
+            txtTelefono.setText("");
+            Cantidad--;
+            if(Cantidad<1)
+            {
+                mostrarP.setVisible(true); 
+            }
+    }
     
+    MostrarPasajeros mostrarP = new MostrarPasajeros(); 
+    private int Cantidad;
     private String vuelo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxSexo;
     private javax.swing.JButton btnPasajeros;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelPasajero;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtDNI;
     private javax.swing.JTextField txtNombre;

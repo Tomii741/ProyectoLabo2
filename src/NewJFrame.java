@@ -2,6 +2,7 @@
 import javax.swing.DefaultListModel;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 public class NewJFrame extends javax.swing.JFrame {
 
@@ -172,8 +173,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         //Boton Buscar
-        ElegirVuelo elegirVuelo = new ElegirVuelo();
-        PASAJE pasaje = new PasajeIdayVuelta();
+
         if(CheckSoloIda.isSelected())
         {
             pasaje = new PasajeSoloIda();
@@ -183,57 +183,33 @@ public class NewJFrame extends javax.swing.JFrame {
             pasaje = new PasajeIdayVuelta();
         }
         try{
-               CheckCasillaNoNula(TxtDestino.getText());
-               CheckCasillaNoNula(TxtOrigen.getText());
+               PASAJE.CheckCasillaNoNula(TxtDestino.getText());
+               PASAJE.CheckCasillaNoNula(TxtOrigen.getText());
                
                pasaje.Destino = TxtDestino.getText();
                pasaje.Origen = TxtOrigen.getText();
                pasaje.setSalida(FechaSalida.getDate());
                pasaje.setVuelta(FechaVuelta.getDate());       
                elegirVuelo.setCantidad((int)Cantidad.getValue());     
+
+
+               CrearVuelo(4, 0);
+               
+
+       
+                elegirVuelo.setVisible(true);
         }
         catch(ExcepcionNulo e)
         {
-            System.out.println("Excepcion "+e);
+            JOptionPane.showMessageDialog(null, e);           
         }
-
-        VUELOS vuelo[] = new VUELOS[4];
-        
-        for(int i=0; i<4;i++)
-        {
-            if(CheckSoloIda.isSelected())
-            {
-                vuelo[i] = new VUELOS(pasaje.Origen, pasaje.Destino, pasaje.getSalida());
-                String palabra = "Precio: $" + vuelo[i].getPrecio() + " - Origen: " + vuelo[i].getOrigen()+" - Destino: " + vuelo[i].getDestino() + " - Salida: " +  vuelo[i].getFechaSalida();
-                elegirVuelo.AgregarElemento(palabra);
-            }
-            else{
-                vuelo[i] = new VUELOS(pasaje.Origen, pasaje.Destino, pasaje.getSalida(), pasaje.getVuelta() );
-                String palabra = "Precio: $" + vuelo[i].getPrecio() + " - Origen: " + vuelo[i].getOrigen()+" - Destino: " + vuelo[i].getDestino() + " - Salida: " +  vuelo[i].getFechaSalida()+ " - Vuelta: " + vuelo[i].getFechaLlegada();
-                elegirVuelo.AgregarElemento(palabra);
-            }
-                       
-        }
-
-       
-        elegirVuelo.setVisible(true);
     }//GEN-LAST:event_BuscarActionPerformed
     
     private void TxtOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtOrigenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtOrigenActionPerformed
 
-    public void CheckCasillaNoNula(String dato) throws ExcepcionNulo
-    {
-        if(dato==null)
-        {
-            throw new ExcepcionNulo();
-        }
-        else
-        {
-            System.out.println("das0" + dato + "fin");
-        }
-    }
+
     private void CheckSoloIdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckSoloIdaActionPerformed
         if( CheckSoloIda.isSelected())
         {
@@ -245,6 +221,27 @@ public class NewJFrame extends javax.swing.JFrame {
        
     }//GEN-LAST:event_CheckSoloIdaActionPerformed
 
+    public void CrearVuelo(int NumeroDeVuelos, int i)
+    {
+            
+            if(CheckSoloIda.isSelected())
+            {
+                vuelo[i] = new VUELOS(pasaje.Origen, pasaje.Destino, pasaje.getSalida());
+                String palabra = "Precio: $" + vuelo[i].getPrecio() + " - Origen: " + vuelo[i].getOrigen()+" - Destino: " + vuelo[i].getDestino() + " - Salida: " +  vuelo[i].getFechaSalida();
+                elegirVuelo.AgregarElemento(palabra);
+            }
+            else{
+                vuelo[i] = new VUELOS(pasaje.Origen, pasaje.Destino, pasaje.getSalida(), pasaje.getVuelta() );
+                String palabra = "Precio: $" + vuelo[i].getPrecio() + " - Origen: " + vuelo[i].getOrigen()+" - Destino: " + vuelo[i].getDestino() + " - Salida: " +  vuelo[i].getFechaSalida()+ " - Vuelta: " + vuelo[i].getFechaLlegada();
+                elegirVuelo.AgregarElemento(palabra);
+            }
+            NumeroDeVuelos--;
+            i++;
+            if(NumeroDeVuelos>0)
+            {
+                CrearVuelo(NumeroDeVuelos,i);
+            }
+    }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -277,7 +274,10 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    VUELOS vuelo[] = new VUELOS[4];
+    ElegirVuelo elegirVuelo = new ElegirVuelo();
+    PASAJE pasaje = new PasajeIdayVuelta();
     DefaultListModel modelo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Buscar;
