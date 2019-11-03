@@ -124,6 +124,10 @@ public class JFramePasajero extends javax.swing.JFrame {
 
     private void btnPasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasajerosActionPerformed
         
+        MostrarPasajeros mostrarP = new MostrarPasajeros();
+        mostrarP.setVisible(true);
+        
+        mostrarP.AgregarDato( txtNombre.getText(), txtApellido.getText());
         System.out.println(" " +txtNombre.getText());
         System.out.println(" " +txtApellido.getText());
         System.out.println(" " +ComboBoxSexo.getSelectedItem());
