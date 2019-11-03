@@ -182,13 +182,21 @@ public class NewJFrame extends javax.swing.JFrame {
         {
             pasaje = new PasajeIdayVuelta();
         }
-        
-        pasaje.Destino = TxtDestino.getText();
-        pasaje.Origen = TxtOrigen.getText();
-        pasaje.setSalida(FechaSalida.getDate());
-        pasaje.setVuelta(FechaVuelta.getDate());       
-        pasaje.Cantidad = (int)Cantidad.getValue();
-        elegirVuelo.setCantidad((int)Cantidad.getValue());
+        try{
+               CheckCasillaNoNula(TxtDestino.getText());
+               CheckCasillaNoNula(TxtOrigen.getText());
+               
+               pasaje.Destino = TxtDestino.getText();
+               pasaje.Origen = TxtOrigen.getText();
+               pasaje.setSalida(FechaSalida.getDate());
+               pasaje.setVuelta(FechaVuelta.getDate());       
+               elegirVuelo.setCantidad((int)Cantidad.getValue());     
+        }
+        catch(ExcepcionNulo e)
+        {
+            System.out.println("Excepcion "+e);
+        }
+
         VUELOS vuelo[] = new VUELOS[4];
         
         for(int i=0; i<4;i++)
@@ -196,12 +204,12 @@ public class NewJFrame extends javax.swing.JFrame {
             if(CheckSoloIda.isSelected())
             {
                 vuelo[i] = new VUELOS(pasaje.Origen, pasaje.Destino, pasaje.getSalida());
-                String palabra = "Precio: " + vuelo[i].getPrecio() + " - Origen: " + vuelo[i].getOrigen()+" - Destino: " + vuelo[i].getDestino() + " - Fecha de Salida: " +  vuelo[i].getFechaSalida();
+                String palabra = "Precio: $" + vuelo[i].getPrecio() + " - Origen: " + vuelo[i].getOrigen()+" - Destino: " + vuelo[i].getDestino() + " - Salida: " +  vuelo[i].getFechaSalida();
                 elegirVuelo.AgregarElemento(palabra);
             }
             else{
                 vuelo[i] = new VUELOS(pasaje.Origen, pasaje.Destino, pasaje.getSalida(), pasaje.getVuelta() );
-                String palabra = "Precio: " + vuelo[i].getPrecio() + " - Origen: " + vuelo[i].getOrigen()+" - Destino: " + vuelo[i].getDestino() + " - Fecha de Salida: " +  vuelo[i].getFechaSalida()+ " - Fecha de Vuelta: " + vuelo[i].getFechaLlegada();
+                String palabra = "Precio: $" + vuelo[i].getPrecio() + " - Origen: " + vuelo[i].getOrigen()+" - Destino: " + vuelo[i].getDestino() + " - Salida: " +  vuelo[i].getFechaSalida()+ " - Vuelta: " + vuelo[i].getFechaLlegada();
                 elegirVuelo.AgregarElemento(palabra);
             }
                        
@@ -210,11 +218,22 @@ public class NewJFrame extends javax.swing.JFrame {
        
         elegirVuelo.setVisible(true);
     }//GEN-LAST:event_BuscarActionPerformed
-
+    
     private void TxtOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtOrigenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtOrigenActionPerformed
 
+    public void CheckCasillaNoNula(String dato) throws ExcepcionNulo
+    {
+        if(dato==null)
+        {
+            throw new ExcepcionNulo();
+        }
+        else
+        {
+            System.out.println("das0" + dato + "fin");
+        }
+    }
     private void CheckSoloIdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckSoloIdaActionPerformed
         if( CheckSoloIda.isSelected())
         {
@@ -226,9 +245,7 @@ public class NewJFrame extends javax.swing.JFrame {
        
     }//GEN-LAST:event_CheckSoloIdaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
