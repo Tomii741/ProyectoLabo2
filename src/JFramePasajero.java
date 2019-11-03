@@ -124,11 +124,10 @@ public class JFramePasajero extends javax.swing.JFrame {
 
     private void btnPasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasajerosActionPerformed
         
-        System.out.println(" " +txtNombre.getText());
-        System.out.println(" " +txtApellido.getText());
-        System.out.println(" " +ComboBoxSexo.getSelectedItem());
-        System.out.println(" " +txtDNI.getText());
-        System.out.println(" " +txtTelefono.getText());
+        MostrarPasajeros mostrarP = new MostrarPasajeros();
+        mostrarP.setVisible(true);
+        
+        mostrarP.AgregarDato(txtNombre.getText(), txtApellido.getText(), ComboBoxSexo.getSelectedItem().toString(), txtDNI.getText(), txtTelefono.getText(), vuelo);
         
     }//GEN-LAST:event_btnPasajerosActionPerformed
 
