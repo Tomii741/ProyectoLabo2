@@ -1,4 +1,7 @@
 
+import javax.swing.JOptionPane;
+
+
 
 
 public class JFramePasajero extends javax.swing.JFrame {
@@ -178,6 +181,10 @@ public class JFramePasajero extends javax.swing.JFrame {
     
     public void GuardarDatosEnTabla()
     {
+        try{
+            Integer.parseInt(txtDNI.getText());
+            Integer.parseInt(txtTelefono.getText());
+            
             jLabelPasajero.setText("Pasajeros restantes "+(Cantidad));
             mostrarP.AgregarDato(txtNombre.getText(), txtApellido.getText(), ComboBoxSexo.getSelectedItem().toString(), txtDNI.getText(), txtTelefono.getText(), vuelo); 
             txtNombre.setText("");
@@ -188,7 +195,13 @@ public class JFramePasajero extends javax.swing.JFrame {
             if(Cantidad<1)
             {
                 mostrarP.setVisible(true); 
-            }
+            }            
+        }
+        catch(Exception e)
+                {
+                    JOptionPane.showMessageDialog(null, "Se deben ingresar numeros en DNI y telefono"); 
+                }
+
     }
     
     MostrarPasajeros mostrarP = new MostrarPasajeros(); 

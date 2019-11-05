@@ -3,12 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/ProyectoLabo2/src/VUELOS.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/ProyectoLabo2/src/JFramePasajero.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/ProyectoLabo2/src/MostrarPasajeros.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/ProyectoLabo2/src/ElegirVuelo.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/ProyectoLabo2/src/PERSONA.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitHub/ProyectoLabo2/src/NewJFrame.java</file>
+            <file>file:/C:/Users/Turbioh/Documents/GitHub/ProyectoLabo2/src/ElegirVuelo.java</file>
+            <file>file:/C:/Users/Turbioh/Documents/GitHub/ProyectoLabo2/src/PasajeSoloIda.java</file>
+            <file>file:/C:/Users/Turbioh/Documents/GitHub/ProyectoLabo2/src/PasajeIdayVuelta.java</file>
+            <file>file:/C:/Users/Turbioh/Documents/GitHub/ProyectoLabo2/src/MostrarPasajeros.java</file>
+            <file>file:/C:/Users/Turbioh/Documents/GitHub/ProyectoLabo2/src/PASAJE.java</file>
+            <file>file:/C:/Users/Turbioh/Documents/GitHub/ProyectoLabo2/src/ExcepcionNulo.java</file>
+            <file>file:/C:/Users/Turbioh/Documents/GitHub/ProyectoLabo2/src/VUELOS.java</file>
+            <file>file:/C:/Users/Turbioh/Documents/GitHub/ProyectoLabo2/src/NewJFrame.java</file>
+            <file>file:/C:/Users/Turbioh/Documents/GitHub/ProyectoLabo2/src/PERSONA.java</file>
+            <file>file:/C:/Users/Turbioh/Documents/GitHub/ProyectoLabo2/src/JFramePasajero.java</file>
         </group>
     </open-files>
 </project-private>
